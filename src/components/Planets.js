@@ -26,12 +26,12 @@ const Planets = () => {
             {status === 'success' && (
                 <>
                     <button
-                        onClick={() => setPage(old => Math.max(old - 1, 1))}
+                        onClick={() => setPage(curr => Math.max(curr - 1, 1))}
                         disabled={page === 1}
                     >Previous page</button>
                     <span>{page}</span>
                     <button
-                        onClick={() => setPage(old => (!latestData || !latestData.next ? old : old + 1))}
+                        onClick={() => setPage(curr => (latestData.next ? curr + 1 : curr))}
                         disabled={!latestData || !latestData.next}
                     >Next page</button>
                     <div>
